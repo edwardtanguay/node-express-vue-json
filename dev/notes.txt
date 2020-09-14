@@ -1,4 +1,4 @@
-- change to flashcards
+- x change to flashcards
 - make various get methods
 - password
 - heroku

@@ -13,7 +13,6 @@ const staticDirectory = path.join(__dirname, './public');
 app.use(express.static(staticDirectory));
 
 app.get('/', (req, res) => {
-
 	res.render('index', { pageTitle: 'Flashcards' });
 });
 

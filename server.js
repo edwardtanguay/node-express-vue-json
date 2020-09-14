@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-const Feedback = require('./src/itemTypes/Feedback');
+const Flashcards = require('./src/itemTypes/flashcards');
 
 const app = express();
 const port = 3001;
@@ -20,11 +20,10 @@ app.get('/', (req, res) => {
 app.post('/backend', async (req, res) => {
 	const emulatedWaitSeconds = 0;
 
-	const feedback = new Feedback();
+	const flashcards = new Flashcards();
 	const data = {};
-	data.message = 'fff';
-	await feedback.addEntry('nnn', 'ttt', 'mmm');
-	data.feedbacks = await feedback.getList();
+	//await flashcards.addEntry('ccc', 'fff', 'bbb');
+	data.flashcards = await flashcards.getAll();
 
 	setTimeout(() => {
 		res.send(JSON.stringify(data));

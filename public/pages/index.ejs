@@ -14,9 +14,9 @@
 			Page is loading...
 		</div>
 		<div v-show="pageLoaded">
-			Message: <span v-html="message"></span>
+			Flashcards:
 			<ul>
-				<li v-for="item in feedbacks">{{item.name}} - {{item.title}}</li>
+				<li v-for="item in flashcards">{{item.category}} - {{item.front}} - {{item.back}}</li>
 			</ul>
 
 		</div>
@@ -25,8 +25,7 @@
 		const app = new Vue({
 			el: '#app',
 			data: {
-				message: "hello from vue",
-				feedbacks: [],
+				flashcards: [],
 				pageLoaded: false,
 				pageError: false
 			},
@@ -45,8 +44,7 @@
 						}
 					}).then(response => {
 						const data = response.data;
-						this.message = data.message;
-						this.feedbacks = data.feedbacks;
+						this.flashcards = data.flashcards;
 						this.pageLoaded = true;
 					}).catch(function (error) {
 						this.pageError = true;

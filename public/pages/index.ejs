@@ -3,10 +3,21 @@
 
 <head>
 	<title><%=pageTitle%></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
 </head>
 
 <body>
-	<p>Flashcards will be shown here.</p>
+	<div id="app">
+		Mesage: {{message}}
+	</div>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: "hello from vue"
+			}
+		});
+	</script>
 </body>
 
 </html>

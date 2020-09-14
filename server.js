@@ -14,6 +14,14 @@ app.get('/', (req, res) => {
 	res.render('index', { pageTitle: 'Flashcards' });
 });
 
+app.post('/backend', (req, res) => {
+	const emulatedWaitSeconds = 2;
+	setTimeout(() => {
+		const data = { message: "from backend" };
+		res.send(JSON.stringify(data));
+	}, emulatedWaitSeconds * 1000);
+});
+
 app.listen(port, () => {
 	console.log('app running on port ' + port);
 });

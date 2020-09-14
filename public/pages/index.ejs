@@ -4,19 +4,49 @@
 <head>
 	<title><%=pageTitle%></title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
 </head>
 
 <body>
 	<div id="app">
-		Mesage: {{message}}
+		<div v-show="!pageLoaded">
+			Page is loading...
+		</div>
+		<div v-show="pageLoaded">
+			Message: {{message}}
+		</div>
 	</div>
 	<script>
 		const app = new Vue({
 			el: '#app',
 			data: {
-				message: "hello from vue"
+				message: "hello from vue",
+				pageLoaded: false,
+				pageError: false
+			},
+			methods: {
+				initialize: function () {
+					this.loadPageData();
+				},
+				loadPageData: function () {
+					this.pageLoaded = false;
+					axios({
+						method: 'post',
+						url: 'backend',
+						data: {
+							action: 'loadPageData'
+						}
+					}).then(response => {
+						const data = response.data;
+						this.message = data.message;
+						this.pageLoaded = true;
+					}).catch(function (error) {
+						this.pageError = true;
+					});
+				}
 			}
 		});
+		app.initialize();
 	</script>
 </body>
 

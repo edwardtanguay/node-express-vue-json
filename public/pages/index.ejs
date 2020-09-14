@@ -5,15 +5,20 @@
 	<title><%=pageTitle%></title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 
 <body>
-	<div id="app">
+	<div id="app" style="display:none">
 		<div v-show="!pageLoaded">
 			Page is loading...
 		</div>
 		<div v-show="pageLoaded">
 			Message: <span v-html="message"></span>
+			<ul>
+				<li v-for="item in feedbacks">{{item.name}} - {{item.title}}</li>
+			</ul>
+
 		</div>
 	</div>
 	<script>
@@ -21,11 +26,13 @@
 			el: '#app',
 			data: {
 				message: "hello from vue",
+				feedbacks: [],
 				pageLoaded: false,
 				pageError: false
 			},
 			methods: {
 				initialize: function () {
+					$("#app").fadeIn(500);
 					this.loadPageData();
 				},
 				loadPageData: function () {
@@ -39,6 +46,7 @@
 					}).then(response => {
 						const data = response.data;
 						this.message = data.message;
+						this.feedbacks = data.feedbacks;
 						this.pageLoaded = true;
 					}).catch(function (error) {
 						this.pageError = true;

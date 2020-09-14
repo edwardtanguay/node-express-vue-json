@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 
+const Feedback = require('./src/itemTypes/Feedback');
+
 const app = express();
 const port = 3001;
 
@@ -11,15 +13,20 @@ const staticDirectory = path.join(__dirname, './public');
 app.use(express.static(staticDirectory));
 
 app.get('/', (req, res) => {
+
 	res.render('index', { pageTitle: 'Flashcards' });
 });
 
-app.post('/backend', (req, res) => {
+app.post('/backend', async (req, res) => {
 	const emulatedWaitSeconds = 0;
+
+	const feedback = new Feedback();
+	const data = {};
+	data.message = 'fff';
+	await feedback.addEntry('nnn', 'ttt', 'mmm');
+	data.feedbacks = await feedback.getList();
+
 	setTimeout(() => {
-		const data = {
-			message: `hello ejs`
-		};
 		res.send(JSON.stringify(data));
 	}, emulatedWaitSeconds * 1000);
 });

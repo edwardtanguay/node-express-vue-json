@@ -13,7 +13,7 @@
 			Page is loading...
 		</div>
 		<div v-show="pageLoaded">
-			Message: {{message}}
+			Message: <span v-html="message"></span>
 		</div>
 	</div>
 	<script>

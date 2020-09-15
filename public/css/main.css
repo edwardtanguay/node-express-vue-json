@@ -75,3 +75,8 @@ body {
 .fieldCategory {
 	width: 200px;
 }
+
+.formButtonArea {
+	display: flex;
+	justify-content: flex-end;
+}

@@ -1,10 +1,18 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require("body-parser");
 
 const Flashcards = require('./src/itemTypes/flashcards');
 
 const app = express();
 const port = 3001;
+
+
+
+app.use(bodyParser.urlencoded({
+	limit: '200mb', extended: true
+}));
+app.use(bodyParser.json({ limit: '200mb' }));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './public/pages'));
@@ -21,6 +29,17 @@ app.post('/backend', async (req, res) => {
 
 	const flashcards = new Flashcards();
 	const data = {};
+
+	console.log(req.body);
+	// switch (key) {
+	// 	case value:
+
+	// 		break;
+
+	// 	default:
+	// 		break;
+	// }
+
 	//await flashcards.addEntry('ccc', 'fff', 'bbb');
 	data.flashcards = await flashcards.getAll();
 	data.categories = await flashcards.getCategories();

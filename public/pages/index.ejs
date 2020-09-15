@@ -33,12 +33,26 @@
 							v-for="item in categories">{{item.name}} <span class="count">({{item.count}})</span></a>
 					</div>
 				</div>
-				<button class="btn btn-minimal btn-sm" @click="displayFlashcardArea()">Add Flashcard</button>
+				<button class="btn btn-minimal btn-sm"
+					@click="displayFlashcardArea()">{{addFlashcardButtonText}}</button>
 			</div>
 			<hr />
 			<div class="flashcardArea" v-show="showFlashcardArea">
-				flashcardArea
-				<hr />
+				<form>
+					<div class="form-group">
+						<label for="category">Category:</label>
+						<input type="text" class="form-control fieldCategory" id="category">
+					</div>
+					<div class="form-group">
+						<label for="front">Front:</label>
+						<input type="text" class="form-control" id="front">
+					</div>
+					<div class="form-group">
+						<label for="back">Back:</label>
+						<input type="text" class="form-control" id="back">
+					</div>
+					<button type="submit" class="btn btn-minimal">Submit</button>
+				</form>
 			</div>
 
 			<div v-show="!pageLoaded">
@@ -65,7 +79,8 @@
 				pageError: false,
 				categories: [],
 				currentCategoryName: '',
-				showFlashcardArea: false
+				showFlashcardArea: false,
+				addFlashcardButtonText: 'Add Flashcard'
 			},
 			methods: {
 				initialize: function () {
@@ -112,7 +127,15 @@
 					});
 				},
 				displayFlashcardArea: function () {
-					this.showFlashcardArea = true;
+					this.showFlashcardArea = !this.showFlashcardArea;
+					if (this.showFlashcardArea) {
+						setTimeout(() => {
+							$('#category').focus();
+						}, 100);
+						this.addFlashcardButtonText = 'Hide Add Flashcard';
+					} else {
+						this.addFlashcardButtonText = 'Add Flashcard';
+					}
 				}
 			}
 		});

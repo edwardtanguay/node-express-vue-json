@@ -56,5 +56,22 @@ body {
 }
 
 .buttonArea * {
-	margin-right: .3em;
+	margin-right: 0.3em;
+}
+
+.flashcardArea {
+	background-color: #fafafa;
+	padding: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	max-width: 500px;
+	-webkit-box-shadow: 10px 10px 41px -7px rgba(140, 138, 140, 1);
+	-moz-box-shadow: 10px 10px 41px -7px rgba(140, 138, 140, 1);
+	box-shadow: 10px 10px 41px -7px rgba(140, 138, 140, 1);
+}
+
+.fieldCategory {
+	width: 200px;
 }

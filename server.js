@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/backend', async (req, res) => {
-	const emulatedWaitSeconds = .5;
+	const emulatedWaitSeconds = .2;
 
 	const flashcards = new Flashcards();
 	const data = {};

@@ -23,19 +23,13 @@
 			<hr />
 			<div class="dropdown">
 				<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
-					Dropdown button
+					Category
 				</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#" @click="switchCategory()">Link 1</a>
-					<a class="dropdown-item" href="#">Link 2</a>
-					<a class="dropdown-item" href="#">Link 3</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Another link</a>
+					<a class="dropdown-item categoryItem" href="#" @click="switchCategory()"
+						v-for="item in categories">{{item}}</a>
 				</div>
 			</div>
-
-
-			<div class="categories" v-for="item in categories">{{item}}</div>
 			<hr />
 			<div class="flashcard" v-for="item in flashcards">
 				<div class="icon"><img src="images/card_back.png" alt="card_back"></div>

@@ -32,3 +32,9 @@ body {
 .btn-minimal {
 	background-color: #eee;
 }
+
+.categoryItem {
+	font-variant: small-caps;
+	color: #555;
+	font-size: 0.9em;
+}

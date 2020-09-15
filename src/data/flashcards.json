@@ -3676,7 +3676,7 @@
 	},
 	{
 		"back": "git add . && git commit -m \"second commit\"",
-		"category": "gif",
+		"category": "git",
 		"extras": "",
 		"front": "how to add and commit all tracked and untracked files",
 		"id": 2805,

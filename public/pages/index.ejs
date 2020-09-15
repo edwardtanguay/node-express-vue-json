@@ -20,18 +20,26 @@
 		<div>
 			Flashcards:
 			<hr />
-			<div class="dropdown">
-				<span v-if="currentCategoryName!==''" @click="loadPageData()" class="categoryLabel">Category: </span>
-				<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
-					<span v-if="currentCategoryName===''">Choose Category</span>
-					<span v-if="currentCategoryName!==''">{{currentCategoryName}}</span>
-				</button>
-				<div class="dropdown-menu">
-					<a class="dropdown-item categoryItem" href="#" @click="switchCategory(item.name)"
-						v-for="item in categories">{{item.name}} <span class="count">({{item.count}})</span></a>
+			<div class="buttonArea">
+				<div class="dropdown">
+					<span v-if="currentCategoryName!==''" @click="loadPageData()" class="categoryLabel">Category:
+					</span>
+					<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
+						<span v-if="currentCategoryName===''">Choose Category</span>
+						<span v-if="currentCategoryName!==''">{{currentCategoryName}}</span>
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item categoryItem" href="#" @click="switchCategory(item.name)"
+							v-for="item in categories">{{item.name}} <span class="count">({{item.count}})</span></a>
+					</div>
 				</div>
+				<button class="btn btn-minimal btn-sm" @click="displayFlashcardArea()">Add Flashcard</button>
 			</div>
 			<hr />
+			<div class="flashcardArea" v-show="showFlashcardArea">
+				flashcardArea
+				<hr />
+			</div>
 
 			<div v-show="!pageLoaded">
 				<i class="fa fa-spinner fa-pulse page_loading_spinner" aria-hidden="true"></i>
@@ -56,7 +64,8 @@
 				pageLoaded: false,
 				pageError: false,
 				categories: [],
-				currentCategoryName: ''
+				currentCategoryName: '',
+				showFlashcardArea: false
 			},
 			methods: {
 				initialize: function () {
@@ -102,6 +111,9 @@
 						this.pageError = true;
 					});
 				},
+				displayFlashcardArea: function () {
+					this.showFlashcardArea = true;
+				}
 			}
 		});
 		app.initialize();

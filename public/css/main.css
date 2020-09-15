@@ -50,3 +50,11 @@ body {
 .categoryLabel {
 	cursor: pointer;
 }
+
+.buttonArea {
+	display: flex;
+}
+
+.buttonArea * {
+	margin-right: .3em;
+}

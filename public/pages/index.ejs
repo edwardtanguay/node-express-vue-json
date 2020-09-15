@@ -147,7 +147,6 @@
 					}
 				},
 				saveFlashcard: function () {
-					this.clearAddFlashcardForm();
 					this.saveFlashcardData();
 				},
 				clearAddFlashcardForm: function () {
@@ -169,6 +168,7 @@
 						this.success = data.success;
 						console.log(this.success);
 						this.showFlashcardArea = false;
+						this.clearAddFlashcardForm();
 					}).catch(function (error) {
 						this.pageError = true;
 					});

@@ -39,9 +39,9 @@ app.post('/backend', async (req, res) => {
 			data.flashcards = await flashcards.getCategory(req.body.categoryName);
 			break;
 		case 'saveFlashcard':
-			await flashcards.addEntry('ccc', 'fff', 'bbb');
+			const f = req.body.flashcard;
+			await flashcards.addEntry(f.category, f.front, f.back);
 			data.success = true;
-			console.log('here');
 			break;
 	}
 

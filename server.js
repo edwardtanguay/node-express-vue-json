@@ -38,11 +38,12 @@ app.post('/backend', async (req, res) => {
 		case 'loadCategory':
 			data.flashcards = await flashcards.getCategory(req.body.categoryName);
 			break;
-		case 'addFlashcard':
-			//await flashcards.addEntry('ccc', 'fff', 'bbb');
+		case 'saveFlashcard':
+			await flashcards.addEntry('ccc', 'fff', 'bbb');
+			data.success = true;
+			console.log('here');
 			break;
 	}
-
 
 	setTimeout(() => {
 		res.send(JSON.stringify(data));

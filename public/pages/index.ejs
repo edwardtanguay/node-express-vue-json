@@ -3,10 +3,8 @@
 
 <head>
 	<title><%=pageTitle%></title>
-	<link rel="stylesheet"
-		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet"
-			  href="css/main.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -16,17 +14,23 @@
 </head>
 
 <body>
-	<div id="app"
-		 style="display:none">
-		 <hr/>
+	<div id="app" style="display:none">
 		<div v-show="!pageLoaded">
 			Page is loading...
 		</div>
 		<div v-show="pageLoaded">
 			Flashcards:
-			<ul>
-				<li v-for="item in flashcards">{{item.category}} - {{item.front}} - {{item.back}}</li>
-			</ul>
+			<hr />
+
+			<hr />
+			<div class="flashcard" v-for="item in flashcards">
+				<div class="icon"><img src="images/card_back.png" alt="card_back"></div>
+				<div class="infoArea">
+					<div class="category">{{item.category}}</div>
+					<div class="front">{{item.front}}</div>
+					<div class="back">{{item.back}}</div>
+				</div>
+			</div>
 
 		</div>
 	</div>

@@ -1,3 +1,30 @@
 body {
-	padding: 20px;
+	padding: 2em;
+}
+
+.flashcard {
+	margin-bottom: 1.5em;
+	display: flex;
+}
+
+.flashcard .infoArea {
+	margin-left: 0.5em;
+	margin-top: -0.4em;
+}
+
+.flashcard .category {
+	font-variant: small-caps;
+	color: #555;
+	font-size: 0.9em;
+}
+
+.flashcard .front {
+	line-height: 1.2em;
+}
+
+.flashcard .back {
+	font-family: "Courier New", Courier, monospace;
+	color: brown;
+	background-color: #eee;
+	font-size: 0.8em;
 }

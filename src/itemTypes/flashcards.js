@@ -25,7 +25,12 @@ class Flashcards {
 			if (a.toLowerCase() > b.toLowerCase()) return 1;
 			return 0;
 		});
-		return sortedUniqueCategories;
+
+		const categoryItems = [];
+		sortedUniqueCategories.forEach(name => {
+			categoryItems.push({ name: name, count: 0 });
+		});
+		return categoryItems;
 	}
 
 	async getAll() {

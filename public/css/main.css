@@ -42,3 +42,7 @@ body {
 .page_loading_spinner {
 	font-size: 30px !important;
 }
+
+.count {
+	color: #aaa;
+}

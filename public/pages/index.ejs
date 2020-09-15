@@ -21,7 +21,7 @@
 		<div v-show="pageLoaded">
 			Flashcards:
 			<hr />
-
+			<div class="categories" v-for="item in categories">{{item}}</div>
 			<hr />
 			<div class="flashcard" v-for="item in flashcards">
 				<div class="icon"><img src="images/card_back.png" alt="card_back"></div>
@@ -40,7 +40,8 @@
 			data: {
 				flashcards: [],
 				pageLoaded: false,
-				pageError: false
+				pageError: false,
+				categories: []
 			},
 			methods: {
 				initialize: function () {
@@ -58,6 +59,7 @@
 					}).then(response => {
 						const data = response.data;
 						this.flashcards = data.flashcards;
+						this.categories = data.categories;
 						this.pageLoaded = true;
 					}).catch(function (error) {
 						this.pageError = true;

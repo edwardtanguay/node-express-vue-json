@@ -904,7 +904,7 @@
 	},
 	{
 		"back": "git merge origin/master",
-		"category": "git ",
+		"category": "git",
 		"extras": "",
 		"front": "how to get the latest changes from master into your branch",
 		"id": 2669,
@@ -1009,7 +1009,7 @@
 	},
 	{
 		"back": "chmod u+x doit (chmod u-x doit)",
-		"category": "linux ",
+		"category": "linux",
 		"extras": "",
 		"front": "how to make command executable, and remove it",
 		"id": 2674,
@@ -2584,7 +2584,7 @@
 	},
 	{
 		"back": "const { name, text } = req.body;",
-		"category": "javascript ",
+		"category": "javascript",
 		"extras": "",
 		"front": "define the two variables \"name\" and \"text\" from body \"req.body\"",
 		"id": 2751,
@@ -2773,7 +2773,7 @@
 	},
 	{
 		"back": "git show 3fbb5d4",
-		"category": "git ",
+		"category": "git",
 		"extras": "",
 		"front": "how to get detailed information on a commit in the past, e.g. after you show all commits at the end of January",
 		"id": 2760,
@@ -2983,7 +2983,7 @@
 	},
 	{
 		"back": "return Number(String(x).split('').reverse().join(''));",
-		"category": "JavaScript",
+		"category": "javascript",
 		"extras": "",
 		"front": "how to reverse the digits in a number?",
 		"id": 2770,
@@ -3193,7 +3193,7 @@
 	},
 	{
 		"back": "CTRL-B",
-		"category": "Atom",
+		"category": "atom",
 		"extras": "",
 		"front": "search open files with keyword",
 		"id": 2782,
@@ -3214,7 +3214,7 @@
 	},
 	{
 		"back": "CTRL-T",
-		"category": "Atom",
+		"category": "atom",
 		"extras": "",
 		"front": "find any file in the project fast",
 		"id": 2783,
@@ -3235,7 +3235,7 @@
 	},
 	{
 		"back": "``` `CTRL-K, right-arrow` then `CTRL-K, down-arrow`  or simply drag panes around ",
-		"category": "Atom",
+		"category": "atom",
 		"extras": "",
 		"front": "open up second and third pane for same file",
 		"id": 2784,
@@ -3256,7 +3256,7 @@
 	},
 	{
 		"back": "CTRL-R",
-		"category": "Atom",
+		"category": "atom",
 		"extras": "",
 		"front": "go quickly to methods in JavaScript file",
 		"id": 2785,
@@ -3277,7 +3277,7 @@
 	},
 	{
 		"back": "``` set: `CTRL-ALT-F2`, goto: `CTRL-F2`",
-		"category": "Atom",
+		"category": "atom",
 		"extras": "",
 		"front": "set and go to bookmarks",
 		"id": 2786,
@@ -3781,7 +3781,7 @@
 	},
 	{
 		"back": "grep -ri \\bname\\b qtools",
-		"category": "linux ",
+		"category": "linux",
 		"extras": "",
 		"front": "search in all files in the directory `qtools` for the whole word `name` or `Name` (but not e.g. `firstName` or `names`)",
 		"id": 2812,
@@ -4096,7 +4096,7 @@
 	},
 	{
 		"back": "search for `^\\s` and replace with nothing",
-		"category": "Notepad++",
+		"category": "notepad++",
 		"extras": "",
 		"front": "how to remove all blank lines",
 		"id": 2828,
@@ -4138,7 +4138,7 @@
 	},
 	{
 		"back": "const Header = ({ title }) => { \n\treturn (",
-		"category": "React",
+		"category": "react",
 		"extras": "",
 		"front": "what is the syntax of a function component",
 		"id": 2830,
@@ -4180,7 +4180,7 @@
 	},
 	{
 		"back": "class Header extends React.Component { \n\trender() {",
-		"category": "React",
+		"category": "react",
 		"extras": "",
 		"front": "what is the syntax of a class component",
 		"id": 2832,
@@ -4201,7 +4201,7 @@
 	},
 	{
 		"back": "git checkout head .",
-		"category": "git ",
+		"category": "git",
 		"extras": "",
 		"front": "if you've deleted files to workspace, how can you get them back",
 		"id": 2833,

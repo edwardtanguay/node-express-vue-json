@@ -23,6 +23,7 @@ app.post('/backend', async (req, res) => {
 	const data = {};
 	//await flashcards.addEntry('ccc', 'fff', 'bbb');
 	data.flashcards = await flashcards.getAll();
+	data.categories = await flashcards.getCategories();
 
 	setTimeout(() => {
 		res.send(JSON.stringify(data));

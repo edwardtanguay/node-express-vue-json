@@ -16,6 +16,18 @@ class Flashcards {
 		return writeFile(this.datafile, JSON.stringify(data));
 	}
 
+	async getCategories() {
+		const items = await this.getAll();
+		const allCategories = items.map(m => m.category);
+		const uniqueCategories = [...new Set(allCategories)];
+		const sortedUniqueCategories = uniqueCategories.sort((a, b) => {
+			if (a.toLowerCase() < b.toLowerCase()) return -1;
+			if (a.toLowerCase() > b.toLowerCase()) return 1;
+			return 0;
+		});
+		return sortedUniqueCategories;
+	}
+
 	async getAll() {
 		const data = await readFile(this.datafile, 'utf8');
 		if (!data) return [];

@@ -21,7 +21,7 @@
 			Flashcards:
 			<hr />
 			<div class="dropdown">
-				<span v-if="currentCategoryName!==''">Category: </span>
+				<span v-if="currentCategoryName!==''" @click="loadPageData()" class="categoryLabel">Category: </span>
 				<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
 					<span v-if="currentCategoryName===''">Choose Category</span>
 					<span v-if="currentCategoryName!==''">{{currentCategoryName}}</span>
@@ -64,6 +64,7 @@
 					this.loadPageData();
 				},
 				loadPageData: function () {
+					this.currentCategoryName = '';
 					this.pageLoaded = false;
 					axios({
 						method: 'post',

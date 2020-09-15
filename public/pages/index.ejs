@@ -168,6 +168,8 @@
 						this.success = data.success;
 						console.log(this.success);
 						this.showFlashcardArea = false;
+						this.addFlashcardFormSaving = false;
+						this.addFlashcardButtonText = 'Add Flashcard';
 						this.clearAddFlashcardForm();
 						this.loadPageData();
 					}).catch(function (error) {

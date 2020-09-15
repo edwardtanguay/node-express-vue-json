@@ -25,24 +25,24 @@ app.get('/', (req, res) => {
 });
 
 app.post('/backend', async (req, res) => {
-	const emulatedWaitSeconds = 1;
+	const emulatedWaitSeconds = .5;
 
 	const flashcards = new Flashcards();
 	const data = {};
 
-	console.log(req.body);
-	// switch (key) {
-	// 	case value:
+	switch (req.body.action) {
+		case 'loadPageData':
+			data.flashcards = await flashcards.getAll();
+			data.categories = await flashcards.getCategories();
+			break;
+		case 'loadCategory':
+			data.flashcards = await flashcards.getCategory(req.body.categoryName);
+			break;
+		case 'addFlashcard':
+			//await flashcards.addEntry('ccc', 'fff', 'bbb');
+			break;
+	}
 
-	// 		break;
-
-	// 	default:
-	// 		break;
-	// }
-
-	//await flashcards.addEntry('ccc', 'fff', 'bbb');
-	data.flashcards = await flashcards.getAll();
-	data.categories = await flashcards.getCategories();
 
 	setTimeout(() => {
 		res.send(JSON.stringify(data));

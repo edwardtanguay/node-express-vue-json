@@ -21,11 +21,13 @@
 			Flashcards:
 			<hr />
 			<div class="dropdown">
+				<span v-if="currentCategoryName!==''">Category: </span>
 				<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
-					Category
+					<span v-if="currentCategoryName===''">Choose Category</span>
+					<span v-if="currentCategoryName!==''">{{currentCategoryName}}</span>
 				</button>
 				<div class="dropdown-menu">
-					<a class="dropdown-item categoryItem" href="#" @click="switchCategory()"
+					<a class="dropdown-item categoryItem" href="#" @click="switchCategory(item.name)"
 						v-for="item in categories">{{item.name}} <span class="count">({{item.count}})</span></a>
 				</div>
 			</div>
@@ -53,7 +55,8 @@
 				flashcards: [],
 				pageLoaded: false,
 				pageError: false,
-				categories: []
+				categories: [],
+				currentCategoryName: ''
 			},
 			methods: {
 				initialize: function () {
@@ -77,9 +80,26 @@
 						this.pageError = true;
 					});
 				},
-				switchCategory: function () {
-					console.log('clicked');
-				}
+				switchCategory: function (categoryName) {
+					this.currentCategoryName = categoryName;
+				},
+				loadCategory: function (categoryName) {
+					this.pageLoaded = false;
+					axios({
+						method: 'post',
+						url: 'backend',
+						data: {
+							action: 'loadCategory',
+							categoryName: categoryName
+						}
+					}).then(response => {
+						const data = response.data;
+						this.flashcards = data.flashcards;
+						this.pageLoaded = true;
+					}).catch(function (error) {
+						this.pageError = true;
+					});
+				},
 			}
 		});
 		app.initialize();

@@ -3,14 +3,14 @@
 
 <head>
 	<title><%=pageTitle%></title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 
 <body>
@@ -21,6 +21,20 @@
 		<div v-show="pageLoaded">
 			Flashcards:
 			<hr />
+			<div class="dropdown">
+				<button type="button" class="btn btn-minimal dropdown-toggle btn-sm" data-toggle="dropdown">
+					Dropdown button
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#" @click="switchCategory()">Link 1</a>
+					<a class="dropdown-item" href="#">Link 2</a>
+					<a class="dropdown-item" href="#">Link 3</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Another link</a>
+				</div>
+			</div>
+
+
 			<div class="categories" v-for="item in categories">{{item}}</div>
 			<hr />
 			<div class="flashcard" v-for="item in flashcards">
@@ -64,6 +78,9 @@
 					}).catch(function (error) {
 						this.pageError = true;
 					});
+				},
+				switchCategory: function () {
+					console.log('clicked');
 				}
 			}
 		});

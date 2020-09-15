@@ -15,10 +15,7 @@
 
 <body>
 	<div id="app" style="display:none">
-		<div v-show="!pageLoaded">
-			Page is loading...
-		</div>
-		<div v-show="pageLoaded">
+		<div>
 			Flashcards:
 			<hr />
 			<div class="dropdown">
@@ -31,15 +28,20 @@
 				</div>
 			</div>
 			<hr />
-			<div class="flashcard" v-for="item in flashcards">
-				<div class="icon"><img src="images/card_back.png" alt="card_back"></div>
-				<div class="infoArea">
-					<div class="category">{{item.category}}</div>
-					<div class="front">{{item.front}}</div>
-					<div class="back">{{item.back}}</div>
+
+			<div v-show="!pageLoaded">
+				Page is loading...
+			</div>
+			<div class="content" v-show="pageLoaded">
+				<div class="flashcard" v-for="item in flashcards">
+					<div class="icon"><img src="images/card_back.png" alt="card_back"></div>
+					<div class="infoArea">
+						<div class="category">{{item.category}}</div>
+						<div class="front">{{item.front}}</div>
+						<div class="back">{{item.back}}</div>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	<script>

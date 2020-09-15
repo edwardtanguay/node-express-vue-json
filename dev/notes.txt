@@ -1,3 +1,6 @@
-- add data
-- password
-- heroku
+- .. searh on current
+- enter pin to add
+- publish at heroku
+	- link to 
+- create full readme
+- record in onespace as miniframework

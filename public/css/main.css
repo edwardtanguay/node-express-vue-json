@@ -38,3 +38,7 @@ body {
 	color: #555;
 	font-size: 0.9em;
 }
+
+.page_loading_spinner {
+	font-size: 30px !important;
+}

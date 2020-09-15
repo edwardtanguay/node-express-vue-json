@@ -169,6 +169,7 @@
 						console.log(this.success);
 						this.showFlashcardArea = false;
 						this.clearAddFlashcardForm();
+						this.loadPageData();
 					}).catch(function (error) {
 						this.pageError = true;
 					});

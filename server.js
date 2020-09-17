@@ -2,13 +2,14 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require("body-parser");
 const flashcards = require("./src/data/flashcards.json")
+const packageJson = require('./package.json');
 
 const Flashcards = require('./src/itemTypes/flashcards');
 
 const app = express();
 const port = 3001;
 
-
+const { name, version } = packageJson;
 
 app.use(bodyParser.urlencoded({
 	limit: '200mb', extended: true

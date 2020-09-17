@@ -12,14 +12,18 @@
 		testing: [{{message}}]
 	</div>
 	<script>
+
+		const data = {
+			message: 'exterior test',
+			name: 'Hans'
+		};
+
 		const app = new Vue({
 			el: '#app',
-			data: {
-				message: 'test message'
-			},
+			data: data,
 			methods: {
 				initialize: function () {
-					this.message = 'changed message';
+					//this.message = 'changed message';
 				}
 			}
 		});

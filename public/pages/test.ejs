@@ -43,47 +43,57 @@
 </head>
 
 <body>
-	<div id="app" class="mainContainer">
-		<div>testing: [{{message}}]</div>
-		<div class="icon"><img :src="mainImage" /></div>
-
-		<div class="clearfix">
-			<div class="h5 float-left">left</div>
-			<div class="h5 float-right">right</div>
-		</div>
-		<hr />
-		<div>{{Number(total)}}</div>
-		<div v-if="total > 6"> there are more than five</div>
-		<div v-else-if="total > 3"> there are more than three</div>
-		<div v-else>there are three or less</div>
-		<hr />
-		<div class="mb-5">
-			sdfsdf
-		</div>
-		<div class="mb-5">
-			next
-		</div>
-		<div class="w-100 d-flex mb-5">
-			<form class=" d-flex mr-auto">
-				<div class="color-primary mr-2">Total:</div>
-				<input type="text" class="form-control inputTotal mr-2" v-model="total" />
-				<input type="range" class="custom-range mt-1" min="0" max="20" v-model="total">
-			</form>
-			<div>info</div>
-		</div>
-		<div class="flashcardArea">
-			<div v-show="flashcards.length == 0">
-				<i class="fa fa-spinner fa-pulse page_loading_spinner" aria-hidden="true"></i>
+	<div id="app">
+		<nav class="navbar navbar-light bg-light fixed-top">
+			<div class="navbar-text">
+				<b>cart:</b>
+				<span class="badge badge-pill badge-success">00.00</span>
 			</div>
-			<ul>
-				<li v-for="item in flashcards">
-					<div v-show="flashcards.length > 0">
-						<b>{{item.category}}</b> - {{item.front}}
-					</div>
-				</li>
-			</ul>
+		</nav>
+		<div class="mainContainer">
+			<div>testing: [{{message}}]</div>
+			<div class="icon"><img :src="mainImage" /></div>
+
+			<div class="clearfix">
+				<div class="h5 float-left">left</div>
+				<div class="h5 float-right">right</div>
+			</div>
+			<hr />
+			<div>{{Number(total)}}</div>
+			<div v-if="total > 6"> there are more than five</div>
+			<div v-else-if="total > 3"> there are more than three</div>
+			<div v-else>there are three or less</div>
+			<hr />
+			<div><span v-html="'hello <b>name</b>'"></span></div>
+			<hr />
+			<div class="mb-5">
+				sdfsdf
+			</div>
+			<div class="mb-5">
+				next
+			</div>
+			<div class="w-100 d-flex mb-5">
+				<form class=" d-flex mr-auto">
+					<div class="color-primary mr-2">Total:</div>
+					<input type="text" class="form-control inputTotal mr-2" v-model="total" />
+					<input type="range" class="custom-range mt-1" min="0" max="20" v-model="total">
+				</form>
+				<div>info</div>
+			</div>
+			<div class="flashcardArea">
+				<div v-show="flashcards.length == 0">
+					<i class="fa fa-spinner fa-pulse page_loading_spinner" aria-hidden="true"></i>
+				</div>
+				<ul>
+					<li v-for="item in flashcards">
+						<div v-show="flashcards.length > 0">
+							<b>{{item.category}}</b> - {{item.front}}
+						</div>
+					</li>
+				</ul>
+			</div>
+			<hr />
 		</div>
-		<hr />
 	</div>
 	<script>
 

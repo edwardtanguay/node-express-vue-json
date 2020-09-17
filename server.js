@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require("body-parser");
+const flashcards = require("./src/data/flashcards.json")
 
 const Flashcards = require('./src/itemTypes/flashcards');
 
@@ -26,6 +27,12 @@ app.get('/', (req, res) => {
 
 app.get('/test', (req, res) => {
 	res.render('test', { pageTitle: 'Test Page' });
+});
+
+app.get('/siteData', (req, res) => {
+	setTimeout(() => {
+		res.send({ flashcards: flashcards });
+	},2000);
 });
 
 app.post('/backend', async (req, res) => {

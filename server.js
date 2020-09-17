@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
 	res.render('index', { pageTitle: 'Flashcards' });
 });
 
+app.get('/test', (req, res) => {
+	res.render('test', { pageTitle: 'Test Page' });
+});
+
 app.post('/backend', async (req, res) => {
 	const emulatedWaitSeconds = .2;
 

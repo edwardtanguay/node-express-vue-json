@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title><%=pageTitle%></title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.4/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		testing: [{{message}}]
+	</div>
+	<script>
+		const app = new Vue({
+			el: '#app',
+			data: {
+				message: 'test message'
+			},
+			methods: {
+				initialize: function () {
+					this.message = 'changed message';
+				}
+			}
+		});
+		app.initialize();
+	</script>
+</body>
+
+</html>
